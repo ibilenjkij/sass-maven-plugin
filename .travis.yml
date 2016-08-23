@@ -4,7 +4,7 @@ sudo: false
 
 before_install:
    - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-         wget http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip;
+         wget --no-check-certificate https://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip;
          unzip -qq apache-maven-3.3.9-bin.zip;
          export M2_HOME=$PWD/apache-maven-3.3.9;
          export PATH=$M2_HOME/bin:$PATH;
@@ -57,8 +57,6 @@ matrix:
 #    - os: osx
 #      env: JAVA_HOME=/usr/libexec/java_home
   allow_failures:
-#   - env: JVM=latest
-#    - os: osx
     - env: JAVA_HOME=/usr/lib/jvm/java-7-oracle
 
 cache:
